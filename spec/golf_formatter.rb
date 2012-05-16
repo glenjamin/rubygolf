@@ -60,7 +60,7 @@ class GolfFormatter < RSpec::Core::Formatters::BaseTextFormatter
 
       begin
         Pusher['golf'].trigger!('spec_run', {:my_name => @pusher_config["my_name"], :passed => passed_nos, :failed => failed_nos, :character_count => character_count})
-      rescue Pusher::Error => e
+      rescue
         puts "Failed to send stats to server"
       end
     end
